@@ -41,3 +41,16 @@ npx create-react-app bank-client --template typescript
 
 
 
+
+# Homework
+- Learn about react Form validation using https://formik.org/docs/overview
+- Read the following Docs on Typescript:
+ - https://www.typescriptlang.org/docs/handbook/interfaces.html
+ - https://www.typescriptlang.org/docs/handbook/basic-types.html
+- Add the following page to our new Bank System: Change password component
+- The component will have the option to choose userId and change his password by inserting the current password & new changed password
+- userId ( input )
+- old password - for validation ( input )
+- new password - ( input )
+- confirm new password ( input )
+- button - save
