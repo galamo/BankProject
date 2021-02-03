@@ -25,7 +25,7 @@ router.post(`/${_registerPath}`, getValidationFunction(_registerPath), async (re
         else throw new Error("Registration Failed")
     } catch (ex) {
         console.log(ex.message)
-        return next({ message: ex.message, status: 403 })
+        return next({ message: ex.message, status: 400 })
     }
 })
 

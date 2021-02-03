@@ -5,6 +5,7 @@ const cors = require("cors")
 const api = express()
 const login = require("./routes/login")
 
+api.use(cors())
 api.use(bodyParser.json())
 api.get("/health-check", (req, res, next) => {
     res.send("Api working")

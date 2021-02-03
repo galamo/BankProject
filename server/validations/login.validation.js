@@ -20,7 +20,7 @@ const validationsObj = {
         const { error } = registerSchema.validate(req.body)
         if (error) {
             console.log(error.details)
-            return res.send(error.details)
+            return next(error.details)
         }
         return next()
     }
