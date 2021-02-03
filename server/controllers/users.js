@@ -20,7 +20,8 @@ async function createUser(userValues) {
     console.log(values)
     const insertQuery = "INSERT INTO `bank_db`.`users`(`id`,`email`,`firstName`,`lastName`,`password`,`phone`,`address`,`bankBranch`) VALUES (?,?,?,?,?,?,?,?)"
     const [rows] = await (await connection()).execute(insertQuery, values)
-    return rows[0];
+    console.log(rows)
+    return rows.affectedRows;
 }
 
 

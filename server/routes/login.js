@@ -17,10 +17,16 @@ router.post("/login", async (req, res, next) => {
 const _registerPath = "register"
 router.post(`/${_registerPath}`, getValidationFunction(_registerPath), async (req, res, next) => {
     const { email } = req.body;
-    const result = await isUserRegistered(email)
-    if (result) return res.json({ message: `User ${result.email} is already exist` })
-    createUser(req.body)
-    return res.json({ message: `Registration completed` })
+    try {
+        const result = await isUserRegistered(email)
+        if (result) throw new Error(`User ${result.email} is already exist`)
+        const create = await createUser(req.body)
+        if (create) return res.json({ message: `Registration completed` })
+        else throw new Error("Registration Failed")
+    } catch (ex) {
+        console.log(ex.message)
+        return next({ message: ex.message, status: 403 })
+    }
 })
 
 
