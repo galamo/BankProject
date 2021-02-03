@@ -1,9 +1,6 @@
 CREATE SCHEMA `bank_db` ;
 
-
-
 --- Create Users Table
-
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
@@ -19,9 +16,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 --- create users data
-
 INSERT INTO `bank_db`.`users` (`id`, `email`, `firstName`, `lastName`, `password`, `bankBranch`) VALUES ('303236533', 'galamo@gmail.com', 'gal', 'amouyal', '1212', '033');
 INSERT INTO `bank_db`.`users` (`id`, `email`, `firstName`, `lastName`, `password`, `bankBranch`) VALUES ('303232222', 'sapiro@gmail.com', 'sapiro', 'sapiro', '1212', '033');
 INSERT INTO `bank_db`.`users` (`id`, `email`, `firstName`, `lastName`, `password`, `bankBranch`) VALUES ('303236111', 'noam@gmail.com', 'noam', 'noam', '1212', '033');
