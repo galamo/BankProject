@@ -40,6 +40,20 @@ npx create-react-app bank-client --template typescript
 - Extra details
 
 
+#### Account
+- accountId - number
+- createdAt - date
+- Balance - number
+- bankBranch - number 
+- type - string
+- updatedAt - date
+
+### Account_users
+- id - number
+- accountid - number 
+- userId - number 
+- createdAt - date
+- role_account - string
 
 
 # Homework 03-02-2021
@@ -54,3 +68,10 @@ npx create-react-app bank-client --template typescript
 - new password - ( input )
 - confirm new password ( input )
 - button - save
+
+
+
+### EX 
+- Import the new Tables
+- Insert new Data
+- Create a join statement which return firstName + account number + balance 

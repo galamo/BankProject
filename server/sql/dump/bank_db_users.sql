@@ -60,3 +60,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-02-03 19:18:12
+
+
+
+CREATE TABLE `accounts` (
+  `id` int(10) NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime DEFAULT NULL,
+  `balance` decimal(2,0) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `accounts_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `accountId` int(11) NOT NULL,
+  `userId` bigint(20) NOT NULL,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `accountRole` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_userid_id_idx` (`userId`),
+  KEY `fk_account_id_idx` (`accountId`),
+  CONSTRAINT `fk_account_id` FOREIGN KEY (`accountId`) REFERENCES `accounts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_userid_id` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
