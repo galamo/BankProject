@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const cors = require("cors")
 const api = express()
 const login = require("./routes/login")
+const account = require("./routes/accounts")
 
 api.use(cors())
 api.use(bodyParser.json())
@@ -12,6 +13,7 @@ api.get("/health-check", (req, res, next) => {
 })
 
 api.use("/auth", login)
+api.use("/account", account)
 
 api.use((error, req, res, next) => {
     console.log(error)

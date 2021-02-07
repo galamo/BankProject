@@ -75,3 +75,8 @@ npx create-react-app bank-client --template typescript
 - Import the new Tables
 - Insert new Data
 - Create a join statement which return firstName + account number + balance 
+
+
+# Homework 07-02-2021
+- Create A Component for the admin: Accounts details
+- The Component will present all the accounts + users details 

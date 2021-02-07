@@ -9,8 +9,8 @@ async function isUserRegistered(email, password) {
     return rows[0];
 }
 
-async function isUserExist(email) {
-    const [rows] = await (await connection()).execute("SELECT * FROM users where email = ?", [email])
+async function isUserExist(id) {
+    const [rows] = await (await connection()).execute("SELECT * FROM users where id = ?", [id])
     return rows[0];
 }
 
@@ -28,6 +28,8 @@ async function changePassword(id, newPassword) {
     const [rows] = await (await connection()).execute(updateQuery, [newPassword, id])
     return rows.affectedRows;
 }
+
+
 
 
 module.exports = { isUserRegistered, isUserExist, createUser, changePassword }
