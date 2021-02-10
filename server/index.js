@@ -16,7 +16,7 @@ api.use("/auth", login)
 api.use("/account", account)
 
 api.use((error, req, res, next) => {
-    console.log(error)
+    console.log(error && error.ex && error.ex.message)
     const status = error.status || 500
     res.status(status).json(error.message)
 })

@@ -1,5 +1,5 @@
 const express = require("express")
-const { createAccount, createAccountUser } = require("../controllers/account")
+const { createAccount, createAccountUser, getAccounts } = require("../controllers/account")
 const { isUserExist } = require("../controllers/users")
 const router = express.Router()
 const getValidationFunction = require("../validations/account.validation")
@@ -27,6 +27,18 @@ router.post("/", getValidationFunction("account"), async (req, res, next) => {
     function _generateAccountId() {
         return Math.floor(Math.random() * 99999)
     }
+})
+
+
+router.get("/", async (req, res, next) => {
+
+    try {
+        const result = await getAccounts()
+        res.json(result)
+    } catch (ex) {
+        return next({ message: "GENERAL ERROR", status: 400 })
+    }
+
 })
 
 
