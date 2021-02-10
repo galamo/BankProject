@@ -5,6 +5,7 @@ const cors = require("cors")
 const api = express()
 const login = require("./routes/login")
 const account = require("./routes/accounts")
+const user = require("./routes/users")
 
 api.use(cors())
 api.use(bodyParser.json())
@@ -14,6 +15,7 @@ api.get("/health-check", (req, res, next) => {
 
 api.use("/auth", login)
 api.use("/account", account)
+api.use("/user", user)
 
 api.use((error, req, res, next) => {
     console.log(error && error.ex && error.ex.message)

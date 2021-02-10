@@ -83,6 +83,24 @@ npx create-react-app bank-client --template typescript
 
 
 # Homework 10-02-2021
-- Get Users for filter
-- place users in DDL
-- filter by user - on change
+- Create Users endpoint - Done
+- Execute request from client ( service + async action)
+- Put the result in the store
+- Present the data (users) in DDL
+- Call the server for accounts on every DDL change ( user selection)
+
+example:
+```sql
+SELECT 
+    accountId, email, firstName, accounts.createdAt
+FROM
+    bank_db.accounts
+        JOIN
+    bank_db.accounts_users ON bank_db.accounts.id = bank_db.accounts_users.accountId
+        JOIN
+    bank_db.users ON bank_db.users.id = bank_db.accounts_users.userId 
+    WHERE bank_db.users.id = 777777
+    order by accounts.createdAt desc
+
+
+```

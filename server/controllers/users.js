@@ -29,7 +29,12 @@ async function changePassword(id, newPassword) {
     return rows.affectedRows;
 }
 
+async function getUsers() {
+    const getQuery = "SELECT * FROM bank_db.users"
+    const [rows] = await (await connection()).execute(getQuery)
+    return rows;
+}
 
 
 
-module.exports = { isUserRegistered, isUserExist, createUser, changePassword }
+module.exports = { isUserRegistered, isUserExist, createUser, changePassword, getUsers }
