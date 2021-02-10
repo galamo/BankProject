@@ -12,7 +12,7 @@ export default async function getAccountsAction() {
         const result = await getAccountsService()
         dispatch({ type: ACTIONS.ACCOUNTS.GET_ACCOUNTS_SUCCESS, payload: result })
     } catch (error) {
-
+        console.log(error)
     }
 
 }

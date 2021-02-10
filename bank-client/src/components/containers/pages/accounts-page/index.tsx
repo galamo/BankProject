@@ -18,7 +18,7 @@ export default function AccountsPage() {
     return <div>
         <h1> Accounts  </h1>
         <div>
-            {accounts.map(account => <AccountCard accountId={account.accountId} />)}
+            {accounts.map(account => <AccountCard key={account.accountId} {...account} />)}
         </div>
     </div>
 }

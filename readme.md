@@ -80,3 +80,9 @@ npx create-react-app bank-client --template typescript
 # Homework 07-02-2021
 - Create A Component for the admin: Accounts details
 - The Component will present all the accounts + users details 
+
+
+# Homework 10-02-2021
+- Get Users for filter
+- place users in DDL
+- filter by user - on change
