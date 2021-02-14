@@ -23,7 +23,7 @@ async function getAccounts(userId) {
     bank_db.accounts
         JOIN
     bank_db.accounts_users ON bank_db.accounts.id = bank_db.accounts_users.accountId
-        JOIN
+        LEFT JOIN
     bank_db.users ON bank_db.users.id = bank_db.accounts_users.userId ${whereUserId} order by accounts.createdAt desc`;
     const [rows] = await (await connection()).execute(getAccountsQuery, params);
     return rows

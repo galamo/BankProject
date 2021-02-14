@@ -4,16 +4,36 @@ import './App.css';
 import { Register } from './components/containers/pages/register';
 import { ChangePassword } from './components/containers/pages/changePassword';
 import AccountsPage from './components/containers/pages/accounts-page';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NavBarApp from './components/ui-component/nav-bar';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <AccountsPage />
-      </header>
-    </div>
+
+    <Router>
+      <div className="container">
+        <h1 className="jumbotron"> Bank Of Haifa  </h1>
+        <div className="row">
+          <NavBarApp />
+        </div>
+        <div className="row">
+          <Switch>
+            <Route key="CreateAccount" path="/CreateAccount">
+              <Register />
+            </Route>
+            <Route key="change-password" path="/change-password">
+              <ChangePassword />
+            </Route>
+            <Route key="home" path="/">
+              <AccountsPage />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
+
   );
 }
 
