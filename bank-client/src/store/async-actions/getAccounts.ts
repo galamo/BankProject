@@ -6,10 +6,10 @@ import getAccountsService from "../services/accounts.service";
 
 const { dispatch } = store
 
-export default async function getAccountsAction() {
+export default async function getAccountsAction(userId?: number) {
 
     try {
-        const result = await getAccountsService()
+        const result = await getAccountsService(userId)
         dispatch({ type: ACTIONS.ACCOUNTS.GET_ACCOUNTS_SUCCESS, payload: result })
     } catch (error) {
         console.log(error)

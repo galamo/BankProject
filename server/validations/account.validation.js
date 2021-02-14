@@ -9,7 +9,9 @@ const accountSchema = Joi.object().keys({
     users: Joi.array().items(Joi.number()),
 })
 
-
+const getAccountsSchema = Joi.object().keys({
+    userId: Joi.number().optional(),
+})
 
 const validationsObj = {
     account: (req, res, next) => {
@@ -19,7 +21,15 @@ const validationsObj = {
             return next(error.details)
         }
         return next()
-    }
+    },
+    getAccounts: (req, res, next) => {
+        const { error } = getAccountsSchema.validate(req.query)
+        if (error) {
+            console.log(error.details)
+            return next(error.details)
+        }
+        return next()
+    },
 }
 
 function getValidationFunction(path) {

@@ -104,3 +104,8 @@ FROM
 
 
 ```
+
+
+# ex - Create Account page
+- HTTP Request GET / ?accountId=111
+- return the Account details ( balance, account owners)

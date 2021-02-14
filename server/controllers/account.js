@@ -14,7 +14,9 @@ async function createAccountUser(accountId, userId, accountRole) {
     return rows
 }
 
-async function getAccounts() {
+async function getAccounts(userId) {
+    const whereUserId = userId ? " where bank_db.users.id = ? " : ""
+    const params = userId ? [userId] : []
     const getAccountsQuery = `SELECT 
     accountId, email, firstName, accounts.createdAt
         FROM
@@ -22,9 +24,8 @@ async function getAccounts() {
         JOIN
     bank_db.accounts_users ON bank_db.accounts.id = bank_db.accounts_users.accountId
         JOIN
-    bank_db.users ON bank_db.users.id = bank_db.accounts_users.userId order by accounts.createdAt desc`;
-
-    const [rows] = await (await connection()).execute(getAccountsQuery);
+    bank_db.users ON bank_db.users.id = bank_db.accounts_users.userId ${whereUserId} order by accounts.createdAt desc`;
+    const [rows] = await (await connection()).execute(getAccountsQuery, params);
     return rows
 }
 

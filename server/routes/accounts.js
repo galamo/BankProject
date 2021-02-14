@@ -30,10 +30,10 @@ router.post("/", getValidationFunction("account"), async (req, res, next) => {
 })
 
 
-router.get("/", async (req, res, next) => {
-
+router.get("/", getValidationFunction("getAccounts"), async (req, res, next) => {
+    const { userId } = req.query;
     try {
-        const result = await getAccounts()
+        const result = await getAccounts(userId)
         res.json(result)
     } catch (ex) {
         return next({ message: "GENERAL ERROR", status: 400 })

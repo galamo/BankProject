@@ -24,9 +24,8 @@ export default function AccountsPage() {
     return <div>
         <h1> Accounts  </h1>
         <div>
-            Filters: <UsersFilter users={users} onChange={(v: string) => {
-                console.log(v);
-                getAccountsAction()
+            Filters: <UsersFilter users={users} onChange={(v: number) => {
+                getAccountsAction(v)
             }} />
         </div>
         <div>

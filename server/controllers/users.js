@@ -36,5 +36,17 @@ async function getUsers() {
 }
 
 
+async function getUsersWithAccounts() {
+    const getQuery = `SELECT 
+    distinct(bank_db.users.email) , bank_db.users.firstName, bank_db.users.id as id
+    FROM
+    bank_db.users
+        JOIN
+    bank_db.accounts_users ON bank_db.users.id = bank_db.accounts_users.userId`
+    const [rows] = await (await connection()).execute(getQuery)
+    return rows;
+}
 
-module.exports = { isUserRegistered, isUserExist, createUser, changePassword, getUsers }
+
+
+module.exports = { isUserRegistered, isUserExist, createUser, changePassword, getUsers, getUsersWithAccounts }
