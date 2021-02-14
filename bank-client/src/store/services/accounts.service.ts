@@ -27,6 +27,21 @@ function createAccounts(data: Array<any>) {
 
 
 
+
+export async function getAccountByIdService(accountId: number) {
+    const { data } = await axios.get(`${API_URL}/${accountId}`)
+    return data
+}
+
+export async function accountOperation(operation: string, amount: number) {
+
+    // const { data } = await axios.put(`${API_URL}`, { accountId, operation, amount })
+    // return data
+}
+
+
+
+
 //reduce 2
  // if (accountsObj[accountId]) {
         //     return {

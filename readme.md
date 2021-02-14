@@ -109,3 +109,12 @@ FROM
 # ex - Create Account page
 - HTTP Request GET / ?accountId=111
 - return the Account details ( balance, account owners)
+
+
+
+# Homework 14-02-2021
+- Create Account Operation API
+- AccountId, Operation , Amount
+- Controller update query to DB - update the balance as expected. Deposit / Withdraw 
+- Response with the new Amount
+

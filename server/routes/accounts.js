@@ -1,5 +1,5 @@
 const express = require("express")
-const { createAccount, createAccountUser, getAccounts } = require("../controllers/account")
+const { createAccount, createAccountUser, getAccounts, getAccountById } = require("../controllers/account")
 const { isUserExist } = require("../controllers/users")
 const router = express.Router()
 const getValidationFunction = require("../validations/account.validation")
@@ -39,6 +39,16 @@ router.get("/", getValidationFunction("getAccounts"), async (req, res, next) => 
         return next({ message: "GENERAL ERROR", status: 400 })
     }
 
+})
+
+router.get("/:accountId", async (req, res, next) => {
+    const { accountId } = req.params;
+    try {
+        const result = await getAccountById(accountId)
+        res.json(result)
+    } catch (ex) {
+        return next({ message: "GENERAL ERROR", status: 400 })
+    }
 })
 
 

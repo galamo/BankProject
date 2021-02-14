@@ -6,6 +6,7 @@ import { ChangePassword } from './components/containers/pages/changePassword';
 import AccountsPage from './components/containers/pages/accounts-page';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBarApp from './components/ui-component/nav-bar';
+import AccountPage from './components/containers/pages/account-page';
 
 
 
@@ -22,6 +23,9 @@ function App() {
           <Switch>
             <Route key="CreateAccount" path="/CreateAccount">
               <Register />
+            </Route>
+            <Route key="accountPage" path="/account-page/:accountId">
+              <AccountPage />
             </Route>
             <Route key="change-password" path="/change-password">
               <ChangePassword />
