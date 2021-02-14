@@ -13,7 +13,7 @@ export default function AccountCard(props: IAccount) {
         <h1> Account Id: {props.accountId}  </h1>
         <h4> Created At: {moment(props.createdAt).format("DD-MMM yyyy")}  </h4>
         <div>
-            {props.users.map(user => <UserCard {...user} />)}
+            {props.users.map(user => <UserCard key={user.email} {...user} />)}
         </div>
     </div >
 }

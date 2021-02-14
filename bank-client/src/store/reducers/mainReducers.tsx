@@ -2,10 +2,11 @@ import ACTIONS from "../actions"
 
 export interface IState {
     accounts: Array<any>;
-    userName: string | null
+    userName: string | null,
+    users: Array<any>;
 }
 
-const initialState: IState = { accounts: [], userName: null }
+const initialState: IState = { accounts: [], users: [], userName: null }
 function mainReducer(state = initialState, action: any) {
     switch (action.type) {
 
@@ -26,6 +27,9 @@ function mainReducer(state = initialState, action: any) {
 
         case ACTIONS.ACCOUNTS.GET_ACCOUNTS_SUCCESS: {
             return { ...state, accounts: [...action.payload] };
+        }
+        case ACTIONS.USERS.GET_USERS_SUCCESS: {
+            return { ...state, users: [...action.payload] };
         }
 
         default: {
