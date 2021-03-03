@@ -5,7 +5,8 @@ import { BASE_URL } from "./register.service"
 const API_URL = `${BASE_URL}/account`
 export default async function getAccountsService(userId?: number) {
     const queryUserId = userId ? `?userId=${userId}` : ""
-    const { data } = await axios.get(`${API_URL}${queryUserId}`)
+    const { data } = await axios.get(`${API_URL}${queryUserId}`,
+        { headers: { authorization: localStorage.getItem("token") } })
     const modeldedAccounts = createAccounts(data)
     return modeldedAccounts
 }

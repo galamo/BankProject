@@ -24,7 +24,7 @@ api.use("/user", user)
 
 api.use((error, req, res, next) => {
     console.log("in error handler...")
-    res.send("1111")
+    res.send("Something went wrong")
 })
 
 

@@ -7,6 +7,7 @@ import AccountsPage from './components/containers/pages/accounts-page';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBarApp from './components/ui-component/nav-bar';
 import AccountPage from './components/containers/pages/account-page';
+import { Login } from './components/containers/pages/login';
 
 
 
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route key="change-password" path="/change-password">
               <ChangePassword />
+            </Route>
+            <Route key="login" path="/login">
+              <Login />
             </Route>
             <Route key="home" path="/">
               <AccountsPage />

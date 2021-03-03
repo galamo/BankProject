@@ -1,10 +1,20 @@
 const express = require("express")
 const { createAccount, createAccountUser, getAccounts, getAccountById } = require("../controllers/account")
+const { verifyJWT } = require("../controllers/jwt")
 const { isUserExist } = require("../controllers/users")
 const router = express.Router()
 const getValidationFunction = require("../validations/account.validation")
 
 
+router.use(async (req, res, next) => {
+    try {
+        const verify = await verifyJWT(req.headers.authorization)
+        if (verify) return next()
+    } catch (error) {
+        return next(error)
+    }
+
+})
 
 // create account
 router.post("/", getValidationFunction("account"), async (req, res, next) => {

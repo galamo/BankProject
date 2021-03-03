@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const { signJwtToken } = require("../controllers/jwt")
+const { signJWT } = require("../controllers/jwt")
 
 const { isUserRegistered, createUser, changePassword } = require("../controllers/users")
 
@@ -8,10 +8,12 @@ const getValidationFunction = require("../validations/login.validation")
 
 router.post("/login", async (req, res, next) => {
     const { email, password } = req.body
+    console.log(req.body)
     if (!email || !password) res.send("error")
     const result = await isUserRegistered(email, password)
     if (result) {
-        const token = await signJwtToken(result.firstName)
+        const token = await signJWT(result.firstName)
+        res.cookie("token", token)
         return res.json({
             message: `Hello ${result.firstName} , login success`,
             token
