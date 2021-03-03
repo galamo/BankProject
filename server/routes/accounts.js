@@ -5,6 +5,7 @@ const router = express.Router()
 const getValidationFunction = require("../validations/account.validation")
 
 
+
 // create account
 router.post("/", getValidationFunction("account"), async (req, res, next) => {
 
@@ -28,7 +29,6 @@ router.post("/", getValidationFunction("account"), async (req, res, next) => {
         return Math.floor(Math.random() * 99999)
     }
 })
-
 
 router.get("/", getValidationFunction("getAccounts"), async (req, res, next) => {
     const { userId } = req.query;

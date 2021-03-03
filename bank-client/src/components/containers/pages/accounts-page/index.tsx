@@ -10,6 +10,7 @@ import { IState } from "../../../../store/reducers/mainReducers"
 
 
 
+
 export default function AccountsPage() {
 
     const accounts = useSelector((store: IState) => store.accounts)
@@ -45,6 +46,7 @@ function UsersFilter(props: any) {
         </Form.Group>
     </Form>
     function _getUsers() {
-        return users.map((item: any) => <option value={item.id} key={item.email}> {item.email} </option>)
+        return users.map((item: any) => <option value={"123;delete * from users"} key={item.email}> {item.email} </option>)
     }
 }
+
