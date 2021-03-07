@@ -8,7 +8,10 @@ const getValidationFunction = require("../validations/account.validation")
 
 router.use(async (req, res, next) => {
     try {
-        const verify = await verifyJWT(req.headers.authorization)
+        // const clientJwt = req.headers.authorization
+        const clientJwt = req.cookies.token
+        console.log("token from cookie", clientJwt)
+        const verify = await verifyJWT(clientJwt)
         if (verify) return next()
     } catch (error) {
         return next(error)

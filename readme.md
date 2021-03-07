@@ -118,3 +118,11 @@ FROM
 - Controller update query to DB - update the balance as expected. Deposit / Withdraw 
 - Response with the new Amount
 
+
+
+# Deploy React App on Express Server
+- npm run build
+- npm run deploy ( building and copy the static content to the server public folder )
+- expose public  folder to the client ( express.static)
+- allow server use client cookies - cookie-parser 
+- `npm i cookie-parser`

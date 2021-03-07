@@ -32,7 +32,7 @@ export function Login() {
                 <Form.Row>
 
                     <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label>User Email</Form.Label>
                         <Form.Control name="email" onChange={(event) => {
                             onChangePassword(event?.target.name, event?.target.value)
                         }}

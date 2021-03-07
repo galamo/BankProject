@@ -6,10 +6,11 @@ const api = express()
 const login = require("./routes/login")
 const account = require("./routes/accounts")
 const user = require("./routes/users")
-const jwt = require("./controllers/jwt")
+const cookieParser = require("cookie-parser")
 
-
-api.use(cors())
+api.use(cookieParser())
+api.use(express.static("public"))
+// api.use(cors())
 api.use(bodyParser.json())
 api.get("/health-check", (req, res, next) => {
     res.send("Api working")
