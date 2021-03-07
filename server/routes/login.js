@@ -12,8 +12,12 @@ router.post("/login", async (req, res, next) => {
     if (!email || !password) res.send("error")
     const result = await isUserRegistered(email, password)
     if (result) {
+        const options = {
+            secure: false,
+            httpOnly: false,
+        }
         const token = await signJWT(result.firstName)
-        res.cookie("token", token)
+        res.cookie("token", token, options)
         return res.json({
             message: `Hello ${result.firstName} , login success`,
             token

@@ -8,6 +8,7 @@ export const routes = [
     { to: "/", title: "Accounts" },
     { to: "/CreateAccount", title: "Create Account" },
     { to: "/change-password", title: "Change Password" },
+    { to: "/login", title: "Login" },
 
 ]
 
